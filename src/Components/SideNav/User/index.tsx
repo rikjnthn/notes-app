@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { Flex, Link } from "@chakra-ui/react";
 
-
 const LoginSignUp = ({ path, name }: { path: string; name: string }) => {
   return (
     <Link
@@ -19,11 +18,11 @@ const LoginSignUp = ({ path, name }: { path: string; name: string }) => {
 };
 const User = () => {
   const [user, setUser] = useState({
-    useName: 'User',
+    useName: "User",
     haveLogin: true,
     photo: "''",
-  });  
-  
+  });
+
   return (
     <>
       {user.haveLogin ? (
@@ -48,7 +47,7 @@ const User = () => {
           User
         </Flex>
       ) : (
-        <Flex width="full" height='fit-content' justifyContent="center" gap="3">
+        <Flex width="full" height="fit-content" justifyContent="center" gap="3">
           <LoginSignUp path="login" name="Login" />
           <span>|</span>
           <LoginSignUp path="sign-up" name="Sign Up" />

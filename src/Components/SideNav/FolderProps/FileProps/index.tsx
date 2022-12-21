@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-import { Flex } from "@chakra-ui/react";
-import { Link, useParams } from "react-router-dom";
+import { Flex, Link } from "@chakra-ui/react";
+import { useParams } from "react-router-dom";
 
 import { Delete } from "../../../../assets";
 import { FolderStateType } from "..";
@@ -22,8 +22,7 @@ const FileProps = ({
   const { FileID } = useParams();
 
   const onDelete = () => {
-    if (id === FileID)
-      history.pushState(null, "close all file", "http://localhost:5173");
+    if (id === FileID) location.href = "http://localhost:5173";
 
     setFolderState((prevState) => {
       return {
@@ -33,7 +32,7 @@ const FileProps = ({
       };
     });
 
-    localStorage.removeItem(id)
+    localStorage.removeItem(id);
   };
 
   useEffect(() => {
@@ -48,9 +47,8 @@ const FileProps = ({
       backgroundColor={open ? "blackAlpha.200" : "transparent"}
       _hover={{ backgroundColor: "blackAlpha.200" }}
     >
-      <Flex
-        as={Link}
-        to={`${folderName}/${id}`}
+      <Link
+        href={`/${folderName}/${id}`}
         paddingInline="0"
         paddingLeft="16"
         width="full"
@@ -59,7 +57,7 @@ const FileProps = ({
         marginRight="auto"
       >
         {fileName}
-      </Flex>
+      </Link>
       <img onClick={onDelete} src={Delete} />
     </Flex>
   );

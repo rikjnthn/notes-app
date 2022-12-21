@@ -13,7 +13,6 @@ import { useParams } from "react-router-dom";
 const FileView = () => {
   const [view, setView] = useState(false);
   const [text, setText] = useState("");
-  const [saveText, setSaveText] = useState("");
 
   const saveRef = useRef<HTMLButtonElement>(null);
 
@@ -33,16 +32,12 @@ const FileView = () => {
       : setView(() => false);
   }, [FileID, FolderName]);
 
-  useEffect(() => {
-    setSaveText(() => localStorage.getItem(id) ?? "");
-    console.log(saveText);
-  }, [saveText]);
-
   const handleBlur = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const inp = e.currentTarget.value;
 
     setText(() => inp);
-
+    //atur woi pas set localstoragenya malah ketinggalan satu huruf
+    localStorage.setItem(id, inp);
     saveRef.current?.click();
   };
 
@@ -77,12 +72,10 @@ const FileView = () => {
             width="full"
             height="full"
             border="none"
-            padding={10}
             focusBorderColor="none"
             spellCheck="false"
             placeholder="What you want to write today?"
-            defaultValue={saveText}
-            
+            defaultValue={localStorage.getItem(id) ?? ""}
           />
         </Flex>
       ) : (

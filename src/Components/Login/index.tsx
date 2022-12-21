@@ -12,7 +12,6 @@ import {
 } from "@chakra-ui/react";
 
 const Login = () => {
-
   const hanldeInpEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inpEmail = e.target.value;
 

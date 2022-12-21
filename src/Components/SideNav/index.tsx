@@ -21,7 +21,7 @@ export interface FolderType {
   inpFolderInvalid: boolean;
 }
 
-export let folderName: Array<string> = []
+export let folderName: Array<string> = [];
 
 const SideNav = () => {
   const saveNotes =
@@ -38,7 +38,7 @@ const SideNav = () => {
 
   useEffect(() => {
     localStorage.setItem("notes", JSON.stringify(folder));
-    folderName = folderList.map(x => x)
+    folderName = folderList.map((x) => x);
   }, [folderList]);
 
   const addFolderName = (e: React.ChangeEvent<HTMLInputElement>) => {

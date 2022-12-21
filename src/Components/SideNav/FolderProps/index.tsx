@@ -48,7 +48,7 @@ const FolderProps = ({
   const { fileList, fileId, isOpen, inpFileInvalid, inpFileName, isAddFile } =
     folderState;
 
-  const {FolderName} = useParams()
+  const { FolderName } = useParams();
 
   useEffect(() => {
     localStorage.setItem(folderName, JSON.stringify(folderState));
@@ -96,6 +96,7 @@ const FolderProps = ({
         ],
       };
     });
+
     setFolderState((prevState) => {
       return {
         ...prevState,
@@ -104,16 +105,13 @@ const FolderProps = ({
         isOpen: false,
       };
     });
-    localStorage.removeItem(folderName);
-    localStorage.removeItem(`${folderName} fileIdList`);
-    
     fileId.forEach((value) => {
       localStorage.removeItem(value);
+    });
+    localStorage.removeItem(folderName);
+    localStorage.removeItem(`${folderName} fileIdList`);
 
-    })
-
-    if (FolderName === folderName) history.pushState(null, "close all file", "http://localhost:5173");
-
+    if (FolderName === folderName) location.href = "http://localhost:5173";
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

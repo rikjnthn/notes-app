@@ -4,7 +4,7 @@ import { Container, Heading, Flex, Text } from "@chakra-ui/react";
 
 const PageNotFound = () => {
   return (
-    <Flex alignItems="center" height="100vh" marginX='auto'>
+    <Flex alignItems="center" height="100vh" marginX="auto">
       <Container paddingY="10" paddingInline="0">
         <Container>
           <Heading textAlign="center">Page Not Found</Heading>
