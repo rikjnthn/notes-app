@@ -13,8 +13,6 @@ import {
   FormErrorMessage,
 } from "@chakra-ui/react";
 
-import "./SignUp.css";
-
 interface SignUpType {
   inpPassword: string;
   inpConfirmPassword: string;

@@ -13,7 +13,7 @@ const Setting = () => {
       paddingLeft="5"
       _hover={{ backgroundColor: "blackAlpha.200" }}
     >
-      <img src={SettingIcon} />
+      <img src={SettingIcon} alt='setting' />
       <Text>Setting</Text>
     </Flex>
   );

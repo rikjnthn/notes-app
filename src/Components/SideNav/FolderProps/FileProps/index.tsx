@@ -60,7 +60,7 @@ const FileProps = ({
       >
         {fileName}
       </Link>
-      <img onClick={onDelete} src={Delete} />
+      <img onClick={onDelete} src={Delete} alt='' />
     </Flex>
   );
 };
