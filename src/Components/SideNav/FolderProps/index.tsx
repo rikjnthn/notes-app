@@ -111,7 +111,7 @@ const FolderProps = ({
     localStorage.removeItem(folderName);
     localStorage.removeItem(`${folderName} fileIdList`);
 
-    if (FolderName === folderName) location.href = "http://localhost:5173";
+    if (FolderName === folderName) location.href = `http://${location.host}/#/notes-app`;
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

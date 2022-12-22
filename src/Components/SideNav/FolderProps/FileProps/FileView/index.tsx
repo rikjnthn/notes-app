@@ -53,7 +53,7 @@ const FileView = () => {
           flexDirection="column"
           marginX="auto"
           marginY="20"
-          width={{ base: "full", md: "calc(100% - 20rem)" }}
+          width='full'
           height="calc(100vh - 10rem)"
         >
           <Button
@@ -67,7 +67,6 @@ const FileView = () => {
           </Button>
           <Textarea
             onBlur={handleBlur}
-            // onChange={handleBlur}
             width="full"
             height="full"
             border="none"

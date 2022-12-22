@@ -22,8 +22,8 @@ const FileProps = ({
   const { FileID } = useParams();
 
   const onDelete = () => {
-    if (id === FileID) location.href = "http://localhost:5173";
-
+    if (id === FileID) location.href = `http://${location.host}/#/notes-app`;
+    
     setFolderState((prevState) => {
       return {
         ...prevState,
@@ -38,7 +38,6 @@ const FileProps = ({
   useEffect(() => {
     FileID === id ? setOpen(() => true) : setOpen(() => false);
   }, [FileID]);
-
   return (
     <Flex
       className="file"
@@ -48,7 +47,7 @@ const FileProps = ({
       _hover={{ backgroundColor: "blackAlpha.200" }}
     >
       <Link
-        href={`/${folderName}/${id}`}
+        href={`#/notes-app/${folderName}/${id}`}
         display='flex'
         paddingInline="0"
         paddingLeft="16"

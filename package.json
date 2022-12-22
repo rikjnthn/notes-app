@@ -1,4 +1,5 @@
 {
+  "homepage": "http:localhost:4173/#/notes-app/",
   "name": "note-app",
   "private": true,
   "version": "0.0.0",
