@@ -49,12 +49,14 @@ const FileProps = ({
     >
       <Link
         href={`/${folderName}/${id}`}
+        display='flex'
         paddingInline="0"
         paddingLeft="16"
         width="full"
         height="full"
         alignItems="center"
         marginRight="auto"
+        _hover={{textDecoration: 'none'}}
       >
         {fileName}
       </Link>

@@ -36,9 +36,7 @@ const FileView = () => {
     const inp = e.currentTarget.value;
 
     setText(() => inp);
-    //atur woi pas set localstoragenya malah ketinggalan satu huruf
     localStorage.setItem(id, inp);
-    saveRef.current?.click();
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLDivElement>) => {
@@ -55,7 +53,8 @@ const FileView = () => {
           flexDirection="column"
           marginX="auto"
           marginY="20"
-          width="calc(100% - 20rem)"
+          width={{ base: "full", md: "calc(100% - 20rem)" }}
+          height="calc(100vh - 10rem)"
         >
           <Button
             type="submit"
@@ -68,11 +67,12 @@ const FileView = () => {
           </Button>
           <Textarea
             onBlur={handleBlur}
-            onChange={handleBlur}
+            // onChange={handleBlur}
             width="full"
             height="full"
             border="none"
             focusBorderColor="none"
+            resize="none"
             spellCheck="false"
             placeholder="What you want to write today?"
             defaultValue={localStorage.getItem(id) ?? ""}

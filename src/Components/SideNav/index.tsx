@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import {
   Flex,
@@ -6,9 +6,12 @@ import {
   Input,
   FormControl,
   FormErrorMessage,
+  Image,
+  Button,
 } from "@chakra-ui/react";
 import { Outlet } from "react-router-dom";
 
+import { Hamburger } from "../../assets";
 import User from "./User";
 import AddFolder from "./AddFolder";
 import Setting from "./Setting";
@@ -33,6 +36,9 @@ const SideNav = () => {
       inpFolderInvalid: false,
     });
   const [folder, setFolder] = useState<FolderType>(JSON.parse(saveNotes));
+  const [sideNavOpen, setSideNavOpen] = useState(false);
+
+  const navRef = useRef<HTMLDivElement>(null);
 
   const { folderList, inpFolderInvalid, inpFolderName, isAddFolder } = folder;
 
@@ -116,17 +122,54 @@ const SideNav = () => {
       };
     });
   };
+
+  const hamburgerClick = () => {
+    setSideNavOpen((prev) => !prev);
+  };
   return (
     <Flex userSelect="none">
+      <Button
+        onClick={hamburgerClick}
+        marginRight="5"
+        display={{ md: "none" }}
+        marginTop="8"
+        marginLeft="2"
+        backgroundColor="transparent"
+        _hover={{
+          backgroundColor: "transparent",
+        }}
+      >
+        <Image src={Hamburger} alt="hamburger icon" />
+      </Button>
       <Flex
         as="nav"
-        width="20rem"
+        ref={navRef}
+        width={{ base: "20rem", md: "25rem" }}
         height="100vh"
+        position={{ base: "absolute", md: "static" }}
         flexDirection="column"
         paddingY="8"
         borderRight="1px solid #c5c5c5"
+        transition="all 500ms"
+        transform="auto"
+        translateX={{ base: sideNavOpen ? "0" : "-20rem", md: "0" }}
+        backgroundColor="white"
+        zIndex="1"
       >
-        <User />
+        <Flex justifyContent="space-between" alignItems="center">
+          <User />
+          <Button
+            onClick={hamburgerClick}
+            marginRight="5"
+            display={{ md: "none" }}
+            backgroundColor="transparent"
+            _hover={{
+              backgroundColor: "transparent",
+            }}
+          >
+            <Image src={Hamburger} alt="hamburger icon" />
+          </Button>
+        </Flex>
         <Stack spacing="8" marginTop="10" height="100%" overflowY="scroll">
           {folderList.map((value, index) => {
             return (
@@ -175,7 +218,15 @@ const SideNav = () => {
           <Setting />
         </Flex>
       </Flex>
-      <Outlet />
+      <Flex
+        as="main"
+        width="full"
+        overflowY="scroll"
+        position={{ base: "relative" }}
+        zIndex={sideNavOpen ? "-1" : "0"}
+      >
+        <Outlet />
+      </Flex>
     </Flex>
   );
 };

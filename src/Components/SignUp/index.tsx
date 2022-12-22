@@ -47,7 +47,6 @@ const SignUp = () => {
 
   const handleOnSubmit = (e: React.FormEvent<HTMLDivElement>) => {
     e.preventDefault();
-    //urusin pas enter woi
   };
 
   const hanldeInpEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -173,6 +172,7 @@ const SignUp = () => {
       userSelect="none"
     >
       <Flex
+      as='section'
         width="md"
         height="xl"
         borderRadius="md"
