@@ -113,7 +113,7 @@ const FolderProps = ({
 
     if (FolderName === folderName) location.href = `http://${location.host}/notes-app`;
   };
-
+7
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
