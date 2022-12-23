@@ -22,7 +22,7 @@ const FileProps = ({
   const { FileID } = useParams();
 
   const onDelete = () => {
-    if (id === FileID) location.href = `http://${location.host}/notes-app`;
+    if (id === FileID) location.href = `http://${location.host}/notes-app/`;
     
     setFolderState((prevState) => {
       return {
