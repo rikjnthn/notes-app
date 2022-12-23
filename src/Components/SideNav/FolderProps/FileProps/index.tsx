@@ -22,7 +22,7 @@ const FileProps = ({
   const { FileID } = useParams();
 
   const onDelete = () => {
-    if (id === FileID) location.href = `http://${location.host}/#/notes-app`;
+    if (id === FileID) location.href = `http://${location.host}/notes-app`;
     
     setFolderState((prevState) => {
       return {
@@ -47,7 +47,7 @@ const FileProps = ({
       _hover={{ backgroundColor: "blackAlpha.200" }}
     >
       <Link
-        href={`#/notes-app/${folderName}/${id}`}
+        href={`${folderName}/${id}`}
         display='flex'
         paddingInline="0"
         paddingLeft="16"
