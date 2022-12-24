@@ -23,7 +23,7 @@ const FileProps = ({
 
   const onDelete = () => {
     if (id === FileID) location.href = `http://${location.host}/notes-app/`;
-    
+
     setFolderState((prevState) => {
       return {
         ...prevState,
@@ -47,19 +47,19 @@ const FileProps = ({
       _hover={{ backgroundColor: "blackAlpha.200" }}
     >
       <Link
-        href={`/#/${folderName}/${id}`}
-        display='flex'
+        href={`${location.origin}/notes-app/#/${folderName}/${id}`}
+        display="flex"
         paddingInline="0"
         paddingLeft="16"
         width="full"
         height="full"
         alignItems="center"
         marginRight="auto"
-        _hover={{textDecoration: 'none'}}
+        _hover={{ textDecoration: "none" }}
       >
         {fileName}
       </Link>
-      <img onClick={onDelete} src={Delete} alt='' />
+      <img onClick={onDelete} src={Delete} alt="" />
     </Flex>
   );
 };
