@@ -30,3 +30,9 @@
 .file:hover img {
   visibility: visible;
 }
+
+@media screen and (max-width: 48rem) {
+  .file img {
+    visibility: visible;
+  }
+}

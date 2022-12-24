@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 
 import { SideNav, Login, SignUp, PageNotFound, FileView } from "./Components";
@@ -10,7 +10,7 @@ const App = () => {
   return (
     <ChakraProvider>
       <Suspense fallback={<Loading />}>
-        <Router basename="notes-app">
+        <Router>
           <Routes>
             <Route path="/" element={<SideNav />}>
               <Route path=":FolderName">
