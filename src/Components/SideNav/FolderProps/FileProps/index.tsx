@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import { Flex, Link } from "@chakra-ui/react";
-import { useParams } from "react-router-dom";
+import { useParams, Link as RouterLink } from "react-router-dom";
 
 import { Delete } from "../../../../assets";
 import { FolderStateType } from "..";
@@ -22,7 +22,7 @@ const FileProps = ({
   const { FileID } = useParams();
 
   const onDelete = () => {
-    if (id === FileID) location.href = `http://${location.host}/notes-app/`;
+    if (id === FileID) location.href = `${location.origin}/notes-app/`;
 
     setFolderState((prevState) => {
       return {
@@ -37,7 +37,9 @@ const FileProps = ({
 
   useEffect(() => {
     FileID === id ? setOpen(() => true) : setOpen(() => false);
+    open && location.reload()
   }, [FileID]);
+
   return (
     <Flex
       className="file"
@@ -47,7 +49,8 @@ const FileProps = ({
       _hover={{ backgroundColor: "blackAlpha.200" }}
     >
       <Link
-        href={`${location.origin}/notes-app/#/${folderName}/${id}`}
+        as={RouterLink}
+        to={`${folderName}/${id}`}
         display="flex"
         paddingInline="0"
         paddingLeft="16"

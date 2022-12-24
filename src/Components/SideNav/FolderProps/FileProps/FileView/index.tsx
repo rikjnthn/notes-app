@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 
 import {
   Heading,
@@ -13,8 +13,6 @@ import { useParams } from "react-router-dom";
 const FileView = () => {
   const [view, setView] = useState(false);
   const [text, setText] = useState("");
-
-  const saveRef = useRef<HTMLButtonElement>(null);
 
   const { FileID, FolderName } = useParams();
   const id = FileID ?? "";
@@ -53,16 +51,10 @@ const FileView = () => {
           flexDirection="column"
           marginX="auto"
           marginY="20"
-          width='full'
+          width="full"
           height="calc(100vh - 10rem)"
         >
-          <Button
-            type="submit"
-            ref={saveRef}
-            width="16"
-            marginLeft="auto"
-            marginRight="10 "
-          >
+          <Button type="submit" width="16" marginLeft="auto" marginRight="10 ">
             Save
           </Button>
           <Textarea

@@ -1,6 +1,10 @@
 import React, { Suspense } from "react";
 
-import { HashRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  HashRouter as Router,
+  Route,
+  Routes,
+} from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 
 import { SideNav, Login, SignUp, PageNotFound, FileView } from "./Components";
@@ -13,9 +17,7 @@ const App = () => {
         <Router>
           <Routes>
             <Route path="/" element={<SideNav />}>
-              <Route path=":FolderName">
-                <Route path=":FileID" element={<FileView />} />
-              </Route>
+              <Route path=":FolderName/:FileID" element={<FileView />} />
             </Route>
             <Route path="login" element={<Login />} />
             <Route path="sign-up" element={<SignUp />} />
