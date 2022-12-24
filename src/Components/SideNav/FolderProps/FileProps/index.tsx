@@ -47,7 +47,7 @@ const FileProps = ({
       _hover={{ backgroundColor: "blackAlpha.200" }}
     >
       <Link
-        href={`#/${folderName}/${id}`}
+        href={`/#/${folderName}/${id}`}
         display='flex'
         paddingInline="0"
         paddingLeft="16"
