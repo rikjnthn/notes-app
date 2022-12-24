@@ -10,7 +10,7 @@ const App = () => {
   return (
     <ChakraProvider>
       <Suspense fallback={<Loading />}>
-        <Router basename="notes-app">
+        <Router>
           <Routes>
             <Route path="/" element={<SideNav />}>
               <Route path=":FolderName">
