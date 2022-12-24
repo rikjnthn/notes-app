@@ -1,0 +1,1 @@
+.folder>span{display:flex;gap:15px;margin-left:auto;margin-right:1.5rem}.folder img{visibility:hidden}.folder>img{visibility:visible}.folder:hover img{visibility:visible}.rotateX-90deg{rotate:90deg 0 0}.file img{visibility:hidden;margin-right:.75rem}.file:hover img{visibility:visible}@media screen and (max-width: 48rem){.file img{visibility:visible}}
