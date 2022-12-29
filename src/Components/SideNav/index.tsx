@@ -16,6 +16,7 @@ import User from "./User";
 import AddFolder from "./AddFolder";
 import Setting from "./Setting";
 import FolderProps from "./FolderProps";
+import { cssSupport } from "../../helper/css-support";
 
 export interface FolderType {
   folderList: string[];
@@ -145,7 +146,7 @@ const SideNav = () => {
         as="nav"
         ref={navRef}
         width={{ base: "20rem", md: "25rem" }}
-        height="100vh"
+        height={cssSupport("height", "1dvh") ? "100dvh" : "100vh"}
         position={{ base: "absolute", md: "static" }}
         flexDirection="column"
         paddingY="8"

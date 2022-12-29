@@ -1,0 +1,1 @@
+export const cssSupport = (property: string, value: string) => CSS.supports(property, value)

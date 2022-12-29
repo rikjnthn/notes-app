@@ -10,6 +10,8 @@ import {
 } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 
+import { cssSupport } from "../../../../../helper/css-support";
+
 const FileView = () => {
   const [view, setView] = useState(false);
   const [text, setText] = useState("");
@@ -52,7 +54,11 @@ const FileView = () => {
           marginX="auto"
           marginY="20"
           width="full"
-          height="calc(100vh - 10rem)"
+          height={
+            cssSupport("height", "1dvh")
+              ? "calc(100dvh - 10rem)"
+              : "calc(100vh - 10rem)"
+          }
         >
           <Button type="submit" width="16" marginLeft="auto" marginRight="10 ">
             Save
